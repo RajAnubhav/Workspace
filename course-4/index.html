@@ -1,0 +1,64 @@
+<!-- This is an otp generator using javascript -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+
+    <style>
+        .verify {
+            display: inline-flex;
+            margin-bottom: 2px;
+        }
+
+        button {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Contact Us</h2>
+    <div id="text" class="verify1">
+        <input id="email" type="email" placeholder="Enter email" required>
+    </div>
+    <button type="submit" onclick="verify()">Generate OTP</button>
+    <div class="verify2" id="gettingValue">
+        <input type="number" placeholder="Enter otp" id="otp">
+    </div>
+    <button type="submit" onclick="checkOTP()">Verify</button>
+
+    <div id="output"></div>
+
+
+    <script>
+        myotp=""
+        const verify = () => {
+            email = document.getElementById('email').value;
+            console.log(email); // got email
+            const otp = Math.floor((Math.random() * 10 ** 6) + 1);
+            console.log(otp);
+            myotp=otp;
+
+            const passedOTP = otp;
+            if (email == '') {
+                alert("No email is present!");
+            }
+        }
+        const checkOTP = () =>{
+            console.log(myotp)
+            // console.log('Yippee you\'re logged-in successfully! ')
+            if(document.getElementById('otp').value==myotp){
+                console.log('logged in')
+                document.getElementById('output').innerHTML='Successfully logged in! :)';
+            }
+        }
+    </script>
+</body>
+
+</html>
